@@ -1,5 +1,7 @@
+import allure
 from selene import browser, have, be
 
+@allure.title("Переход на страницу с вакансиями")
 def test_go_to_vacancy_page():
     browser.open('')
     browser.all('.nav__item').element_by(have.text('О компании')).click()
@@ -7,6 +9,7 @@ def test_go_to_vacancy_page():
     browser.should(have.url('https://www.ptsecurity.com/ru-ru/about/vacancy/'))
 
 
+@allure.title("Проверка фильтра по направлению вакансии")
 def test_profession_filters():
     browser.open('about/vacancy')
     browser.all('.checkbox__label').element_by(have.text('Информационная безопасность')).click()
@@ -15,7 +18,8 @@ def test_profession_filters():
     browser.all('.listing-wrapper').element_by(have.text('Тестирование')).should(be.not_.visible)
 
 
-def test_test():
+@allure.title("Проверка открытия страницы с вакансией")
+def test_open_vacancy():
     browser.open('about/vacancy')
    # browser.all('.vacancies-list__title').element_by(have.text('Технический писатель')).locate().click()
     browser.all('.vacancies-list__title').element_by(have.text('Технический писатель')).click()
