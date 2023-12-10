@@ -42,9 +42,11 @@ def setup_browser():
 
     browser.quit()
 
+
 @pytest.fixture(scope='function')
 def open_home_page():
     browser.open('')
+
 
 @pytest.fixture(scope='function')
 def open_about_page():
