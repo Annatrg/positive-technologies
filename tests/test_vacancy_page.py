@@ -1,27 +1,42 @@
 import allure
-from selene import browser, have, be
+
+from helpers.home_page import HomePageHelper
+from helpers.universal import UniversalHelper
+from helpers.vacancy_page import VacancyPageHelper
+
+home_page = HomePageHelper()
+universal_helper = UniversalHelper()
+vacancy_page = VacancyPageHelper()
+
 
 @allure.title("Переход на страницу с вакансиями")
 def test_go_to_vacancy_page():
-    browser.open('')
-    browser.all('.nav__item').element_by(have.text('О компании')).click()
-    browser.element('[href="/ru-ru/about/vacancy/"]').click()
-    browser.should(have.url('https://www.ptsecurity.com/ru-ru/about/vacancy/'))
+    with allure.step('Открыть домашнюю страницу'):
+        home_page.open_home_page()
+    with allure.step('Перейти на страницу списка вакансий'):
+        vacancy_page.get_to_vacancy_page()
+    with allure.step('Проверить URL страницы'):
+        universal_helper.check_url('https://www.ptsecurity.com/ru-ru/about/vacancy/')
 
 
 @allure.title("Проверка фильтра по направлению вакансии")
 def test_profession_filters():
-    browser.open('about/vacancy')
-    browser.all('.checkbox__label').element_by(have.text('Информационная безопасность')).click()
-    browser.element('.button').click()
-    browser.all('.listing-wrapper').element_by(have.text('Информационная безопасность')).should(be.visible)
-    browser.all('.listing-wrapper').element_by(have.text('Тестирование')).should(be.not_.visible)
+    with allure.step('Открыть страницу с вакансиями'):
+        universal_helper.open_page('/about/vacancy/')
+    with allure.step('Выбрать фильтр по направлению деятельности'):
+        vacancy_page.choose_filter('Информационная безопасность')
+    with allure.step('Проверить, что в результатах есть вакансия с указанным направлением'):
+        vacancy_page.keyword_appears_in_the_results('Информационная безопасность')
+    with allure.step('Проверить, что в результатах нет вакансий с другим направлением'):
+        vacancy_page.keyword_missing_from_results('Тестирование')
 
 
 @allure.title("Проверка открытия страницы с вакансией")
 def test_open_vacancy():
-    browser.open('about/vacancy')
-   # browser.all('.vacancies-list__title').element_by(have.text('Технический писатель')).locate().click()
-    browser.all('.vacancies-list__title').element_by(have.text('Технический писатель')).click()
-    browser.all('.article__body').element_by(have.text('Мы ищем технического писателя')).should(be.visible)
-    browser.all('.article__body').element_by(have.text('Что мы ожидаем от кандидатов:')).should(be.visible)
+    with allure.step('Открыть страницу с вакансиями'):
+        universal_helper.open_page('/about/vacancy/')
+    with allure.step('Открыть страницу любой вакансии вакансии'):
+        vacancy_page.open_vacancy_page('Технический писатель')
+    with allure.step('Проверить, что в вакансии присутствуют ключевые слова'):
+        vacancy_page.keyword_appears_in_vacancy('Мы ищем технического писателя')
+        vacancy_page.keyword_appears_in_vacancy('Что мы ожидаем от кандидатов')
