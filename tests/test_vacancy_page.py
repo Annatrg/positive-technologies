@@ -24,6 +24,7 @@ def test_go_to_vacancy_page():
         assert "https://www.ptsecurity.com/ru-ru/about/vacancy/" in current_url, \
             f'Текущая ссылка страницы {current_url} не соответствует ожидаемой'
 
+
 @allure.title("Проверка фильтра по направлению вакансии")
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
@@ -34,7 +35,7 @@ def test_profession_filters():
     with allure.step('Открыть страницу с вакансиями'):
         universal_helper.open_page('/about/vacancy/')
     with allure.step('Выбрать фильтр по направлению деятельности'):
-        vacancy_page.choose_filter('Информационная безопасность')
+        vacancy_page.choose_filter(expected_vacancy)
     with allure.step('Проверить, что в результатах есть вакансия с указанным направлением'):
         vacancy_page.keyword_appears_in_the_results(expected_vacancy)
     with allure.step('Проверить, что в результатах нет вакансий с другим направлением'):
