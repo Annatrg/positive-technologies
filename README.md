@@ -53,3 +53,7 @@
 ### Оповещения в Telegram
 
 ![allert_bot](./image/allert_bot.png)
+
+#### Видео-пример прохождения теста
+
+![video](./image/video.gif)
