@@ -67,7 +67,6 @@
 
 ![Jira_task](./image/jira_task.png)
 
-
 ----
 
 ### Интеграция с Allure TestOps
