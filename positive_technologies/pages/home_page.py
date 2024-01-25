@@ -12,3 +12,5 @@ class HomePage:
 
     def check_banners_is_visible(self):
         browser.element('.cards').should(be.visible)
+
+

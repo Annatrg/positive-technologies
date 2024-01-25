@@ -4,9 +4,11 @@ from selene import browser
 from allure_commons.types import Severity
 
 from positive_technologies.pages.home_page import HomePage
+from positive_technologies.pages.login_page import LoginPage
 from positive_technologies.helpers.universal import UniversalHelper
 
 home = HomePage()
+login = LoginPage()
 universal = UniversalHelper()
 
 
@@ -44,3 +46,16 @@ def test_go_to_home_page():
         current_url = browser.driver().current_url
         assert "https://www.ptsecurity.com/ru-ru/" in current_url, \
             f'Текущая ссылка страницы {current_url} не соответствует ожидаемой'
+
+
+def test_failed_login():
+    with allure.step('Открыть домашнюю страницу'):
+        home.open_home_page()
+    with allure.step('Перейти на страницу авторизации для Партнеров'):
+        login.get_to_login_page()
+    with allure.step('Ввести адрес электронной почты'):
+        login.type_email('test@mail.ru')
+    with allure.step('Ввести пароль'):
+        login.type_password('password')
+    with allure.step('Проверить, что отображается ошибка "Неверный логин или пароль"'):
+        login.check_error_login()
