@@ -15,8 +15,8 @@
     "start": 1698689256709,
     "stop": 1698689256770,
     "duration": 61,
-    "minDuration": 0,
-    "maxDuration": 1,
+    "minDuration": 1,
+    "maxDuration": 3,
     "sumDuration": 7
   }
 }

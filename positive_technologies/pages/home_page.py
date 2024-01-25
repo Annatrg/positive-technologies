@@ -1,7 +1,7 @@
 from selene import browser, be
 
 
-class HomePageHelper:
+class HomePage:
 
     def open_home_page(self):
         browser.open('/')

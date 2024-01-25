@@ -1,7 +1,7 @@
 from selene import browser, be, have
 
 
-class VacancyPageHelper:
+class VacancyPage:
 
     def get_to_vacancy_page(self):
         browser.all('.nav__item').element_by(have.text('О компании')).click()

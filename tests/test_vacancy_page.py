@@ -1,14 +1,14 @@
 import allure
 from allure_commons.types import Severity
-from selene.support.shared import browser
+from selene import browser
 
-from helpers.home_page import HomePageHelper
-from helpers.universal import UniversalHelper
-from helpers.vacancy_page import VacancyPageHelper
+from positive_technologies.pages.home_page import HomePage
+from positive_technologies.helpers.universal import UniversalHelper
+from positive_technologies.pages.vacancy_page import VacancyPage
 
-home_page = HomePageHelper()
-universal_helper = UniversalHelper()
-vacancy_page = VacancyPageHelper()
+home = HomePage()
+universal = UniversalHelper()
+vacancy = VacancyPage()
 
 
 @allure.title("Переход на страницу с вакансиями")
@@ -16,9 +16,9 @@ vacancy_page = VacancyPageHelper()
 @allure.severity(Severity.CRITICAL)
 def test_go_to_vacancy_page():
     with allure.step('Открыть домашнюю страницу'):
-        home_page.open_home_page()
+        home.open_home_page()
     with allure.step('Перейти на страницу списка вакансий'):
-        vacancy_page.get_to_vacancy_page()
+        vacancy.get_to_vacancy_page()
     with allure.step('Проверить URL страницы'):
         current_url = browser.driver.current_url
         assert "https://www.ptsecurity.com/ru-ru/about/vacancy/" in current_url, \
@@ -33,13 +33,13 @@ def test_profession_filters():
     unexpected_vacancy = 'Тестирование'
 
     with allure.step('Открыть страницу с вакансиями'):
-        universal_helper.open_page('/about/vacancy/')
+        universal.open_page('/about/vacancy/')
     with allure.step('Выбрать фильтр по направлению деятельности'):
-        vacancy_page.choose_filter(expected_vacancy)
+        vacancy.choose_filter(expected_vacancy)
     with allure.step('Проверить, что в результатах есть вакансия с указанным направлением'):
-        vacancy_page.keyword_appears_in_the_results(expected_vacancy)
+        vacancy.keyword_appears_in_the_results(expected_vacancy)
     with allure.step('Проверить, что в результатах нет вакансий с другим направлением'):
-        vacancy_page.keyword_missing_from_results(unexpected_vacancy)
+        vacancy.keyword_missing_from_results(unexpected_vacancy)
 
 
 @allure.title("Проверка открытия страницы с вакансией")
@@ -50,9 +50,9 @@ def test_open_vacancy():
     keyword_2 = 'Что мы ожидаем от кандидатов'
 
     with allure.step('Открыть страницу с вакансиями'):
-        universal_helper.open_page('/about/vacancy/')
+        universal.open_page('/about/vacancy/')
     with allure.step('Открыть страницу любой вакансии вакансии'):
-        vacancy_page.open_vacancy_page('Технический писатель')
+        vacancy.open_vacancy_page('Технический писатель')
     with allure.step('Проверить, что в вакансии присутствуют ключевые слова'):
-        vacancy_page.keyword_appears_in_vacancy(keyword_1)
-        vacancy_page.keyword_appears_in_vacancy(keyword_2)
+        vacancy.keyword_appears_in_vacancy(keyword_1)
+        vacancy.keyword_appears_in_vacancy(keyword_2)
