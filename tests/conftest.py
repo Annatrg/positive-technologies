@@ -3,7 +3,7 @@ import pytest
 from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from utils import attach
+from positive_technologies.utils import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
