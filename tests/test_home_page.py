@@ -13,7 +13,7 @@ universal = UniversalHelper()
 @allure.title("Проверка наличия баннеров")
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
-def test_banners():
+def test_availability_of_banners():
     with allure.step('Открыть домашнюю страницу'):
         home.open_home_page()
     with allure.step('Проверить URL страницы'):
@@ -25,7 +25,7 @@ def test_banners():
 @allure.title("Принять все cookies")
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
-def test_cookies():
+def test_accept_cookies():
     with allure.step('Открыть домашнюю страницу'):
         home.open_home_page()
     with allure.step('Принять все куки'):

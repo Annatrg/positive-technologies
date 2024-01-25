@@ -28,7 +28,7 @@ def test_go_to_vacancy_page():
 @allure.title("Проверка фильтра по направлению вакансии")
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
-def test_profession_filters():
+def test_choose_profession_filters():
     expected_vacancy = 'Информационная безопасность'
     unexpected_vacancy = 'Тестирование'
 
@@ -45,7 +45,7 @@ def test_profession_filters():
 @allure.title("Проверка открытия страницы с вакансией")
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
-def test_open_vacancy():
+def test_open_page_about_vacancy():
     keyword_1 = 'Мы ищем технического писателя'
     keyword_2 = 'Что мы ожидаем от кандидатов'
 
