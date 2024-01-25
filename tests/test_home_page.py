@@ -1,13 +1,9 @@
 import allure
 from allure_commons.types import Severity
 
-from positive_technologies_tests.pages.home_page import HomePage
-from positive_technologies_tests.pages.login_page import LoginPage
-from positive_technologies_tests.helpers.universal import UniversalHelper
-
-home = HomePage()
-login = LoginPage()
-universal = UniversalHelper()
+from positive_technologies_tests.pages.home_page import home
+from positive_technologies_tests.pages.login_page import login
+from positive_technologies_tests.helpers.universal import universal
 
 
 @allure.title("Проверка наличия баннеров")

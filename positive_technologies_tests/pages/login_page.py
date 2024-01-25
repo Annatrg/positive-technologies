@@ -17,3 +17,6 @@ class LoginPage:
 
     def check_error_login(self):
         browser.all('.form-final').element_by(have.text('Неверный логин или пароль'))
+
+
+login = LoginPage()

@@ -1,13 +1,9 @@
 import allure
 from allure_commons.types import Severity
 
-from positive_technologies_tests.pages.home_page import HomePage
-from positive_technologies_tests.helpers.universal import UniversalHelper
-from positive_technologies_tests.pages.vacancy_page import VacancyPage
-
-home = HomePage()
-universal = UniversalHelper()
-vacancy = VacancyPage()
+from positive_technologies_tests.pages.home_page import home
+from positive_technologies_tests.helpers.universal import universal
+from positive_technologies_tests.pages.vacancy_page import vacancy
 
 
 @allure.title("Переход на страницу с вакансиями")

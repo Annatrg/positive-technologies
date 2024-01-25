@@ -1,7 +1,6 @@
 from selene import browser, have
 
 
-
 class UniversalHelper:
 
     def open_page(self, path: str):
@@ -12,3 +11,6 @@ class UniversalHelper:
 
     def return_home_page(self):
         browser.element('.header-logo').click()
+
+
+universal = UniversalHelper()

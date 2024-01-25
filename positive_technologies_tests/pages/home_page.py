@@ -14,3 +14,4 @@ class HomePage:
         browser.element('.cards').should(be.visible)
 
 
+home = HomePage()

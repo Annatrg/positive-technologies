@@ -22,3 +22,6 @@ class VacancyPage:
 
     def keyword_appears_in_vacancy(self, keyword: str):
         browser.all('.article__body').element_by(have.text(keyword)).should(be.visible)
+
+
+vacancy = VacancyPage()
