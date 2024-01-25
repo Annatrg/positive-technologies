@@ -41,6 +41,6 @@ def test_go_to_home_page():
     with allure.step('Вернуться на домашнюю страницу через иконку логотипа'):
         universal.return_home_page()
     with allure.step('Проверить URL страницы'):
-        current_url = browser.driver.current_url
+        current_url = browser.driver().current_url
         assert "https://www.ptsecurity.com/ru-ru/" in current_url, \
             f'Текущая ссылка страницы {current_url} не соответствует ожидаемой'

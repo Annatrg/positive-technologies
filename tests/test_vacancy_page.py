@@ -20,7 +20,7 @@ def test_go_to_vacancy_page():
     with allure.step('Перейти на страницу списка вакансий'):
         vacancy.get_to_vacancy_page()
     with allure.step('Проверить URL страницы'):
-        current_url = browser.driver.current_url
+        current_url = browser.driver().current_url
         assert "https://www.ptsecurity.com/ru-ru/about/vacancy/" in current_url, \
             f'Текущая ссылка страницы {current_url} не соответствует ожидаемой'
 
