@@ -1,11 +1,9 @@
 import allure
-from selene import browser
-
 from allure_commons.types import Severity
 
-from positive_technologies.pages.home_page import HomePage
-from positive_technologies.pages.login_page import LoginPage
-from positive_technologies.helpers.universal import UniversalHelper
+from positive_technologies_tests.pages.home_page import HomePage
+from positive_technologies_tests.pages.login_page import LoginPage
+from positive_technologies_tests.helpers.universal import UniversalHelper
 
 home = HomePage()
 login = LoginPage()
@@ -43,9 +41,7 @@ def test_go_to_home_page():
     with allure.step('Вернуться на домашнюю страницу через иконку логотипа'):
         universal.return_home_page()
     with allure.step('Проверить URL страницы'):
-        current_url = browser.driver().current_url
-        assert "https://www.ptsecurity.com/ru-ru/" in current_url, \
-            f'Текущая ссылка страницы {current_url} не соответствует ожидаемой'
+        universal.check_url('https://www.ptsecurity.com/ru-ru/')
 
 
 def test_failed_login():

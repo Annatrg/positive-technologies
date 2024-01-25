@@ -1,10 +1,9 @@
 import allure
 from allure_commons.types import Severity
-from selene import browser
 
-from positive_technologies.pages.home_page import HomePage
-from positive_technologies.helpers.universal import UniversalHelper
-from positive_technologies.pages.vacancy_page import VacancyPage
+from positive_technologies_tests.pages.home_page import HomePage
+from positive_technologies_tests.helpers.universal import UniversalHelper
+from positive_technologies_tests.pages.vacancy_page import VacancyPage
 
 home = HomePage()
 universal = UniversalHelper()
@@ -20,9 +19,7 @@ def test_go_to_vacancy_page():
     with allure.step('Перейти на страницу списка вакансий'):
         vacancy.get_to_vacancy_page()
     with allure.step('Проверить URL страницы'):
-        current_url = browser.driver().current_url
-        assert "https://www.ptsecurity.com/ru-ru/about/vacancy/" in current_url, \
-            f'Текущая ссылка страницы {current_url} не соответствует ожидаемой'
+        universal.check_url('https://www.ptsecurity.com/ru-ru/about/vacancy/')
 
 
 @allure.title("Проверка фильтра по направлению вакансии")

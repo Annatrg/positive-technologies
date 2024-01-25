@@ -1,9 +1,9 @@
 import os
 import pytest
-from selene.support.shared import browser
+from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from positive_technologies.utils import attach
+from positive_technologies_tests.utils import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
