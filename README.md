@@ -74,6 +74,7 @@
 
 #### Общий список всех кейсов
 
+![Test_cases](./image/allure_test_cases.png)
 
 #### Пример Dashboard с графиками по тест-кейсам
 
