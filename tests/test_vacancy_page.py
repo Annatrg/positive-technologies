@@ -2,7 +2,7 @@ import allure
 from allure_commons.types import Severity
 
 from positive_technologies_tests.pages.home_page import home
-from positive_technologies_tests.helpers.universal import universal
+from positive_technologies_tests.helpers.universal_helpers import universal
 from positive_technologies_tests.pages.vacancy_page import vacancy
 
 

@@ -3,7 +3,7 @@ from allure_commons.types import Severity
 
 from positive_technologies_tests.pages.home_page import home
 from positive_technologies_tests.pages.login_page import login
-from positive_technologies_tests.helpers.universal import universal
+from positive_technologies_tests.helpers.universal_helpers import universal
 
 
 @allure.title("Проверка наличия баннеров")
@@ -40,6 +40,9 @@ def test_go_to_home_page():
         universal.check_url('https://www.ptsecurity.com/ru-ru/')
 
 
+@allure.title("Авторизация по некорректному email и паролю")
+@allure.tag("web")
+@allure.severity(Severity.CRITICAL)
 def test_failed_login():
     with allure.step('Открыть домашнюю страницу'):
         home.open_home_page()

@@ -63,6 +63,24 @@
 
 ----
 
+### Интеграция с Jira
+
+![Jira_task](./image/jira_task.png)
+
+
+----
+
+### Интеграция с Allure TestOps
+
+#### Общий список всех кейсов
+
+
+#### Пример Dashboard с графиками по тест-кейсам
+
+![Dashboard](./image/allure_dashboards.png)
+
+----
+
 ### Оповещения в Telegram
 
 После выполнения автотестов, запущенных через Jenkins, также придёт уведомление в Telegram_bot об итогах тестирования
