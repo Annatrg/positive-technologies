@@ -49,6 +49,8 @@ def test_failed_login():
         home.open_home_page()
     with allure.step('Перейти на страницу авторизации для Партнеров'):
         login.get_to_login_page()
+    with allure.step('Проверить URL страницы'):
+        universal.check_url('https://partners.ptsecurity.ru/login/#enter')
     with allure.step('Ввести адрес электронной почты'):
         login.type_email('test@mail.ru')
     with allure.step('Ввести пароль'):
